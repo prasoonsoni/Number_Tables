@@ -11,14 +11,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     ListView numberTable;
 
     public void toReturnTable(int timesTable) {
-        ArrayList<String> tableNumber = new ArrayList<String>();
+        ArrayList<String> tableNumber = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
-            tableNumber.add(Integer.toString(timesTable)+ " " + "x" + " " + Integer.toString(i) + " " + "=" + " "+ Integer.toString(i * timesTable));
+            tableNumber.add(timesTable + " x " + i + " = " + (i * timesTable));
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tableNumber);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tableNumber);
         numberTable.setAdapter(arrayAdapter);
     }
 
@@ -26,13 +27,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView enText = (TextView) findViewById(R.id.enText);
+
+        TextView enText = findViewById(R.id.enText);
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        numberTable = findViewById(R.id.numberTable);
+        TextView toView = findViewById(R.id.toView);
+
         enText.animate().alpha(1f).setDuration(2000);
-        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.animate().alpha(1f).setDuration(3000);
-        numberTable = (ListView) findViewById(R.id.numberTable);
-        TextView toView = (TextView) findViewById(R.id.toView);
         toView.animate().alpha(1f).setDuration(4000);
+        numberTable.animate().alpha(1f).setDuration(3000);
+
         seekBar.setMax(20);
         seekBar.setProgress(10);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -46,22 +51,20 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     timesTable = progress;
                 }
-                toView.setText("NUMBER TABLE OF : "+ Integer.toString(timesTable));
+                toView.setText("NUMBER TABLE OF : " + Integer.toString(timesTable));
                 toReturnTable(timesTable);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
-        toView.setText("NUMBER TABLE OF : "+ Integer.toString(10));
-        toReturnTable(10);
 
+        toView.setText("NUMBER TABLE OF : " + 10);
+        toReturnTable(10);
     }
 }
