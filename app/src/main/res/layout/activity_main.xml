@@ -6,20 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148"
-        tools:layout_editor_absoluteX="0dp" />
-
     <TextView
         android:id="@+id/enText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:alpha="0"
         android:gravity="center_horizontal"
         android:text="SCROLL THE BAR TO GET NUMBER TABLE"
@@ -27,30 +18,42 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@+id/enText"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ListView
         android:id="@+id/numberTable"
-        android:layout_width="355dp"
-        android:layout_height="498dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
+        android:alpha="0"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintTop_toBottomOf="@+id/toView" />
 
     <TextView
         android:id="@+id/toView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:alpha="0"
         android:fontFamily="serif-monospace"
         android:gravity="center_horizontal"
@@ -59,9 +62,7 @@
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
